@@ -24,12 +24,10 @@ app.controller("verifyEmailCtrl", ['$scope', '$http', '$rootScope', '$location',
         loading.open();
         console.log(verifyObject);
         if ($scope.user.password.length > 5) {
-            $http.post("http://139.162.3.205/api/verifyUser", verifyObject)
+            $http.post("http://139.162.27.64/api/verifyUser", verifyObject)
                 .success(function(response) {
                     // $('#verify').removeClass('loading');
-
-                    console.log($scope.user.password);
-                    console.log(response);
+console.log(response);
                     if (response.StatusCode === '200') {
                         console.log("success response");
                         console.log(response.email, response.password);
@@ -41,7 +39,7 @@ app.controller("verifyEmailCtrl", ['$scope', '$http', '$rootScope', '$location',
                             };
                             console.log(userObject);
 
-                            $http.post("http://139.162.3.205/api/createUser", userObject)
+                            $http.post("http://139.162.27.64/api/createUser", userObject)
                                 .success(function(response) {
                                     var inst = $('[data-remodal-id=modal]').remodal();
                                     inst.open();
